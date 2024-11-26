@@ -1,8 +1,8 @@
 resource "aws_vpc" "prod_vpc" {
-  cidr_block            = "10.49.0.0/16"
-  instance_tenancy      = "default"
-  enable_dns_hostnames  = true
-  enable_dns_support    = true
+  cidr_block           = "10.49.0.0/16"
+  instance_tenancy     = "default"
+  enable_dns_hostnames = true
+  enable_dns_support   = true
 
   tags = {
     Name = "Prod-VPC"
@@ -10,50 +10,50 @@ resource "aws_vpc" "prod_vpc" {
 }
 
 resource "aws_subnet" "prod_pub_sub1" {
-  vpc_id            = aws_vpc.prod_vpc.id
-  cidr_block        = "10.49.150.0/24"
-  availability_zone = "eu-west-2a"
+  vpc_id                  = aws_vpc.prod_vpc.id
+  cidr_block              = "10.49.150.0/24"
+  availability_zone       = "eu-west-2a"
   map_public_ip_on_launch = "true"
 
   tags = {
     Name = "Prod-Pub1"
-    Env = "Prod"
+    Env  = "Prod"
   }
 }
 
 resource "aws_subnet" "prod_pub_sub2" {
-  vpc_id            = aws_vpc.prod_vpc.id
-  cidr_block        = "10.49.151.0/24"
-  availability_zone = "eu-west-2b"
+  vpc_id                  = aws_vpc.prod_vpc.id
+  cidr_block              = "10.49.151.0/24"
+  availability_zone       = "eu-west-2b"
   map_public_ip_on_launch = "true"
 
   tags = {
     Name = "Prod-Pub2"
-    Env = "Prod"
+    Env  = "Prod"
   }
 }
 
 resource "aws_subnet" "prod_priv_sub1" {
-  vpc_id            = aws_vpc.prod_vpc.id
-  cidr_block        = "10.49.152.0/24"
-  availability_zone = "eu-west-2a"
+  vpc_id                  = aws_vpc.prod_vpc.id
+  cidr_block              = "10.49.152.0/24"
+  availability_zone       = "eu-west-2a"
   map_public_ip_on_launch = "false"
 
   tags = {
     Name = "Prod-Priv1"
-    Env = "Prod"
+    Env  = "Prod"
   }
 }
 
 resource "aws_subnet" "prod_priv_sub2" {
-  vpc_id            = aws_vpc.prod_vpc.id
-  cidr_block        = "10.49.153.0/24"
-  availability_zone = "eu-west-2b"
+  vpc_id                  = aws_vpc.prod_vpc.id
+  cidr_block              = "10.49.153.0/24"
+  availability_zone       = "eu-west-2b"
   map_public_ip_on_launch = "false"
 
   tags = {
     Name = "Prod-Priv2"
-    Env = "Prod"
+    Env  = "Prod"
   }
 }
 
